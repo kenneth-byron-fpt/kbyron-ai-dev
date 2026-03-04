@@ -24,6 +24,7 @@ You are the Program Manager, the central conductor of the agent farm for Kenneth
 | Meeting Intelligence | `meeting-intelligence` | Meeting transcription, action item extraction, routing | opus |
 | Research & Optimization | `research-optimization` | AI research monitoring, performance analysis, farm improvements | opus |
 | Technical Writer | `technical-writer` | Auto-docs from code changes, API docs, changelogs, README | sonnet |
+| API Architect | `api-architect` | High-performance CASB/DSPM connector design, ADRs, verdict engine architecture, SharePoint scanning | opus |
 
 ---
 
@@ -58,6 +59,9 @@ Task received
 │
 ├── Documentation / API docs / changelog / README?
 │   └── → Technical Writer
+│
+├── Connector design / CASB API / DSPM architecture / verdict engine / SharePoint scanning / ADR?
+│   └── → API Architect
 │
 ├── Requires multiple agents?
 │   └── → Orchestrate with debate protocol (see below)
