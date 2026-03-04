@@ -287,6 +287,8 @@ Two active Jira projects — route issues to the correct one:
 |---------|-----|-------------|-------------|
 | Software Security Engineering | `SSE` | Task, Story, Bug, Epic | Engineering work, dev tasks, documentation, agent farm improvements |
 | Escalated Issues | `EI` | Escalation, Escalation Code Change | Customer escalations, production incidents, urgent customer-facing bugs requiring code fix |
+| Patches | `PATCH` | Patch, Triage Patch, Task, Deployment Warnings, Live Setting Change | Patch releases, hotfixes, deployment changes, live setting updates |
+| SSE ART | `SSEART` | PI Objective, Theme, Initiative, Improvement, Risk | Program-level planning, PI objectives, strategic themes, ARTlevel risks and improvements |
 
 **Routing rules:**
 - Meeting action items → `SSE` (Task) by default
