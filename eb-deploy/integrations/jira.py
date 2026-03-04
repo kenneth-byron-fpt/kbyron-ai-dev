@@ -5,7 +5,11 @@ Required env vars:
   JIRA_URL          https://yourcompany.atlassian.net
   JIRA_EMAIL        your-email@company.com
   JIRA_API_TOKEN    API token from id.atlassian.com/manage-profile/security/api-tokens
-  JIRA_PROJECT_KEY  Default project key (e.g. ENG, PROD, OPS)
+  JIRA_PROJECT_KEY  Default project key (SSE)
+
+Supported projects:
+  SSE  — Software Security Engineering (issue type: Task)
+  EI   — Escalated Issues (issue types: Escalation, Escalation Code Change)
 """
 
 import base64
@@ -17,7 +21,8 @@ import httpx
 JIRA_URL      = os.environ.get("JIRA_URL", "").rstrip("/")
 JIRA_EMAIL    = os.environ.get("JIRA_EMAIL", "")
 JIRA_TOKEN    = os.environ.get("JIRA_API_TOKEN", "")
-DEFAULT_PROJECT = os.environ.get("JIRA_PROJECT_KEY", "ENG")
+DEFAULT_PROJECT = os.environ.get("JIRA_PROJECT_KEY", "SSE")
+EI_PROJECT = "EI"  # Escalated Issues — issue types: Escalation, Escalation Code Change
 
 
 def _headers() -> dict:
@@ -172,4 +177,30 @@ async def create_docs_ticket(
         ),
         issue_type="Task",
         labels=["documentation", "agent-farm", "auto-generated"],
+    )
+
+
+async def create_escalation(
+    summary: str,
+    description: str,
+    code_change_required: bool = False,
+    assignee_account_id: Optional[str] = None,
+    due_date: Optional[str] = None,
+    labels: Optional[list[str]] = None,
+) -> dict:
+    """Create an issue in EI (Escalated Issues) project.
+
+    Uses issue type 'Escalation' by default, or 'Escalation Code Change'
+    if a code fix is required.
+    """
+    issue_type = "Escalation Code Change" if code_change_required else "Escalation"
+    all_labels = (labels or []) + ["agent-farm"]
+    return await create_issue(
+        summary=summary,
+        description=description,
+        issue_type=issue_type,
+        project_key=EI_PROJECT,
+        assignee_account_id=assignee_account_id,
+        due_date=due_date,
+        labels=all_labels,
     )

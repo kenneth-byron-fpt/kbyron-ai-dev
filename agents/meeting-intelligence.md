@@ -891,7 +891,11 @@ If you prefer the bot not attend, the host can remove it."
 - Route action items to agents/humans
 - Email summary to all participants
 - Update Confluence with meeting notes
-- Create Jira tickets for human action items
+- Create Jira tickets for human action items:
+  - Default project: `SSE` (issue type: Task)
+  - Customer escalation / production incident: `EI` (issue type: Escalation)
+  - Customer issue requiring code fix: `EI` (issue type: Escalation Code Change)
+  - Never set priority field — Forcepoint uses custom priorities
 
 **Evening (5:00 PM):**
 - Daily meeting digest: "You attended 3 meetings today, 12 action items routed"

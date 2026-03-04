@@ -279,7 +279,25 @@ Example: AI Security Advisor writes threat model → Technical Writer converts t
 
 ---
 
-### 7. Escalation Handling
+### 7. Jira Project Routing
+
+Two active Jira projects — route issues to the correct one:
+
+| Project | Key | Issue Types | When to use |
+|---------|-----|-------------|-------------|
+| Software Security Engineering | `SSE` | Task, Story, Bug, Epic | Engineering work, dev tasks, documentation, agent farm improvements |
+| Escalated Issues | `EI` | Escalation, Escalation Code Change | Customer escalations, production incidents, urgent customer-facing bugs requiring code fix |
+
+**Routing rules:**
+- Meeting action items → `SSE` (Task) by default
+- Customer complaint or production incident surfaced in a meeting → `EI` (Escalation)
+- Bug requiring code change tied to an escalation → `EI` (Escalation Code Change)
+- All agent-farm generated tickets get label `agent-farm`
+- Never set `priority` field — Forcepoint uses custom priorities, let project default apply
+
+---
+
+### 8. Escalation Handling
 
 **Escalate to Sr. Director when:**
 - Task requires human judgment, authority, or relationship (customer call, HR, executive decision)
