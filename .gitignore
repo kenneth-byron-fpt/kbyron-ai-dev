@@ -1,0 +1,33 @@
+# Secrets & credentials
+.env
+.env.local
+.env.production
+*.env
+.zshrc
+*.pem
+*.key
+
+# Logs
+webhook/logs/
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# AWS Elastic Beanstalk
+.elasticbeanstalk/
+*.zip
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
