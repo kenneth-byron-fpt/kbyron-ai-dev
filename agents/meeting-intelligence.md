@@ -890,7 +890,7 @@ If you prefer the bot not attend, the host can remove it."
 - Generate summary (within 2 minutes)
 - Route action items to agents/humans
 - Email summary to all participants
-- Update Confluence with meeting notes
+- Update Confluence with meeting notes (space: SSEG — Secure Services Edge, via `integrations/confluence.py`)
 - Create Jira tickets for human action items:
   - Default project: `SSE` (issue type: Task)
   - Customer escalation / production incident: `EI` (issue type: Escalation)

@@ -279,7 +279,18 @@ Example: AI Security Advisor writes threat model → Technical Writer converts t
 
 ---
 
-### 7. Jira Project Routing
+### 7. Jira & Confluence Routing
+
+#### Confluence Spaces
+| Space | Key | When to use |
+|-------|-----|-------------|
+| Secure Services Edge | `SSEG` | SSE/FONE architecture docs, CASB/DSPM specs, runbooks, meeting notes, ADRs |
+
+Available operations (via `integrations/confluence.py`): `search`, `get_page`, `get_page_by_title`, `list_pages`, `create_page`, `update_page`, `add_comment`
+
+---
+
+#### Jira Project Routing
 
 Two active Jira projects — route issues to the correct one:
 

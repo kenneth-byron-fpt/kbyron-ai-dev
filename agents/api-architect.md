@@ -6,6 +6,9 @@ tools: [Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent]
 permissions:
   read: [**/*]
   write: [docs/architecture/**, docs/connectors/**, docs/adrs/**, specs/**]
+
+confluence_spaces:
+  - SSEG  # Secure Services Edge — publish ADRs, connector specs, architecture docs here
 memory: project
 ---
 
@@ -387,6 +390,7 @@ When asked to design a connector or architecture, produce:
 **Consequences**: What gets better? What gets harder?
 **Alternatives considered**: What did we reject and why?
 ```
+After writing an ADR, publish it to Confluence SSEG space using `integrations/confluence.create_page()`. Parent page: "Architecture Decision Records" (create if it doesn't exist).
 
 ### Connector Design Spec
 - Overview and target app
